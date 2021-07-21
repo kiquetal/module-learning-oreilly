@@ -12,7 +12,13 @@
 	java -d /tmp/classes Sample.java
 	java -classpath /tmp/classes Sample
 
-	java -d output/classes `find first -name *.java`
-	jar -c -f output/mlib/first.jar -C /output/classes
+	javac -d output/classes `find first -name *.java`
+	jar -c -f output/mlib/first.jar -C /output/classes .
 
-
+    Run on modules
+     
+    on java 8
+    java --class-path output/classes com.example.Simple
+     
+    on java 10+
+    java -p output/lib -m first/com.example.Simple	
